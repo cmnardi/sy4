@@ -1,0 +1,3 @@
+api_web:
+    resource: "@NardiControlBundle/Resources/config/routes.yml"
+    prefix: /v1

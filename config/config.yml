@@ -1,0 +1,8 @@
+# app/config/config.yml
+imports:
+  - {resource: fos.yaml}
+
+# app/config/config.yml
+framework:
+    templating:
+        engines: ['twig']

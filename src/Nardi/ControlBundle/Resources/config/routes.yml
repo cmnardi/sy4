@@ -1,0 +1,14 @@
+api:
+    path: /
+    controller: App\Nardi\ControlBundle\Controller\RootController::indexAction
+
+api_transaction:
+    prefix: /transaction
+    type: rest
+    resource: App\Nardi\ControlBundle\Controller\TransactionController
+
+api_category:
+    prefix: /category
+    type: rest
+    resource: App\Nardi\ControlBundle\Controller\CategoryController
+
