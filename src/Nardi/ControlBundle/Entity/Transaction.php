@@ -4,6 +4,7 @@ namespace App\Nardi\ControlBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
+use App\Nardi\ControlBundle\Entity\Category as Category;
 
 /**
  * Transaction
@@ -237,10 +238,10 @@ class Transaction
     }
 
     /**
-     * @param \Category $idCategory
+     * @param Category $idCategory
      * @return Transaction
      */
-    public function setIdCategory(\Category $idCategory): Transaction
+    public function setIdCategory(Category $idCategory): Transaction
     {
         $this->idCategory = $idCategory;
         return $this;

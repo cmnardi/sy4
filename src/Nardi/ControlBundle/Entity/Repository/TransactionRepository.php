@@ -1,6 +1,4 @@
 <?php
-
-
 namespace App\Nardi\ControlBundle\Entity\Repository;
 
 
