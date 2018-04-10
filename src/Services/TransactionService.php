@@ -38,4 +38,20 @@ class TransactionService
             }
         }
     }
+
+    /**
+     * Populate a transaction object basen on \OfxParser\Entities\Transaction
+     * @param \OfxParser\Entities\Transaction
+     * @return Transaction
+     */
+    public function populate(\OfxParser\Entities\Transaction $t) : Transaction
+    {
+        $transaction = new Transaction();
+        $transaction->setDescription($t->memo)
+                    ->setFitid($t->uniqueId)
+                    ->setValue($t->amount)
+                    ->setDate($t->date)
+        ;
+        return $transaction;
+    }
 }
