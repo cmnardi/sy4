@@ -12,7 +12,7 @@ use App\Services\TransactionService;
 
 class Review extends Command
 {
-    protected static $defaultName = 'review';
+    protected static $defaultName = 'app:review';
 
     private $transactionService;
 
@@ -41,12 +41,10 @@ class Review extends Command
         $id_category = 8;
         $transactions = $this->transactionService->getByCategory($id_category, $begin, $end);
         foreach ( $transactions as $i => $t) {
-            echo "\n#".$t->getId()."\t\t".$t->getValue()."\t".$t->getDescription()."\t\t\t";
+            $io->success("#".$t->getId()." - ".$t->getValue()."\t".$t->getDescription());
             $this->transactionService->review($t);
-            if ( $i == 40)
-                break;
         }
 
-        $io->success('Review all transactions');
+        $io->success('END Review');
     }
 }
