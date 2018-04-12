@@ -15,7 +15,7 @@ class TransactionService
     {
         $this->container = $container;
         $this->repository = $this->container->get('doctrine')->getRepository('NardiControlBundle:Transaction');
-        $this->repository->findByMonth(2018,01);
+        //$this->repository->findByMonth(2018,01);
         $this->categoryRepository = $this->container->get('doctrine')->getRepository('NardiControlBundle:Category');
         $this->categories = $this->categoryRepository->getToTest();
         $this->em = $this->container->get('doctrine')->getManager();
@@ -33,8 +33,7 @@ class TransactionService
                 $t->setIdCategory($c);
                 $this->em->persist($t);
                 $this->em->flush();
-                echo "\t\ttest OK ".$c->getName();
-                break;
+                return;
             }
         }
     }
@@ -53,5 +52,14 @@ class TransactionService
                     ->setDate($t->date)
         ;
         return $transaction;
+    }
+
+    /**
+     * 
+     */
+    public function checkIfExists(Transaction $t)
+    {
+        $check = $this->repository->findByFitid($t->getFitid()); //TODO add Date
+        return count($check) > 0;
     }
 }
